@@ -1,9 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  'https://nertgvyciocfxaxvtwgp.supabase.co',
-  'sb_publishable_omYx2K_mIDsjew7oV1HBNA_5PbwV9qa'
-)
+import supabase from './supabase.js'
 
 const { data, error } = await supabase.from('journeys').select('*')
 
@@ -15,8 +10,10 @@ if (error) {
   data.forEach(journey => {
     const item = document.createElement('li')
     item.innerHTML = `
-      <h2>${journey.title}</h2>
-      <p>${journey.description}</p>
+      <a href="/journeys/journey.html?id=${journey.id}">
+        <h2>${journey.title}</h2>
+        <p>${journey.description}</p>
+      </a>
     `
     list.appendChild(item)
   })
