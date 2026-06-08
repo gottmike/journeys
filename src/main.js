@@ -10,7 +10,7 @@ if (error) {
   data.forEach(journey => {
     const item = document.createElement('li')
     item.innerHTML = `
-      <a href="/journeys/journey.html?id=${journey.id}">
+        <a href="/journeys/journey.html?id=${journey.id}">
         <h2>${journey.title}</h2>
         <p>${journey.description}</p>
       </a>
